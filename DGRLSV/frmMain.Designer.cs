@@ -43,6 +43,7 @@
 			this.btnCardView = new DevExpress.XtraBars.BarButtonItem();
 			this.btnListView = new DevExpress.XtraBars.BarButtonItem();
 			this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+			this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
 			this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
 			this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
 			this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -74,9 +75,10 @@
             this.barButtonItem2,
             this.btnCardView,
             this.btnListView,
-            this.barButtonItem3});
+            this.barButtonItem3,
+            this.barButtonItem4});
 			this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-			this.ribbonControl1.MaxItemId = 13;
+			this.ribbonControl1.MaxItemId = 14;
 			this.ribbonControl1.Name = "ribbonControl1";
 			this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage3,
@@ -165,6 +167,15 @@
 			this.barButtonItem3.Id = 12;
 			this.barButtonItem3.Name = "barButtonItem3";
 			// 
+			// barButtonItem4
+			// 
+			this.barButtonItem4.Caption = "Danh sách";
+			this.barButtonItem4.Id = 13;
+			this.barButtonItem4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
+			this.barButtonItem4.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.LargeImage")));
+			this.barButtonItem4.Name = "barButtonItem4";
+			this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
+			// 
 			// ribbonPage3
 			// 
 			this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -188,7 +199,9 @@
 			// 
 			// ribbonPageGroup5
 			// 
+			this.ribbonPageGroup5.AllowTextClipping = false;
 			this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem2);
+			this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem4);
 			this.ribbonPageGroup5.Name = "ribbonPageGroup5";
 			this.ribbonPageGroup5.Text = "Thống Kê";
 			// 
@@ -269,6 +282,7 @@
 		private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
 		private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
 		private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+		private DevExpress.XtraBars.BarButtonItem barButtonItem4;
 	}
 }
 

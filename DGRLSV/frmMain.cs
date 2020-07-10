@@ -22,6 +22,8 @@ namespace DGRLSV
 	public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
 	{
 		dsKetQua f;
+		ThongKe tk;
+		GanGiaoVienChuNhiem gv;
 		public frmMain()
 		{
 			InitializeComponent();
@@ -32,7 +34,59 @@ namespace DGRLSV
 			f.MdiParent = this;
 			f.Show();
 		}
-
+		private Form kiemtraform(Type ftype)
+		{
+			foreach (Form f in this.MdiChildren)
+			{
+				if (f.GetType() == ftype)
+				{
+					return f;
+				}
+			}
+			return null;
+		}
+		private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+		{
+			Form form = kiemtraform(typeof(dsKetQua));
+			if (form == null)
+			{
+				f = new dsKetQua();
+				f.MdiParent = this;
+				f.Show();
+			}
+			else
+			{
+				form.Activate();
+			}
+		}
+		private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+		{
+			Form form = kiemtraform(typeof(ThongKe));
+			if (form == null)
+			{
+				tk = new ThongKe();
+				tk.MdiParent = this;
+				tk.Show();
+			}
+			else
+			{
+				form.Activate();
+			}
+		}
+		private void btnGV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+		{
+			Form form = kiemtraform(typeof(GanGiaoVienChuNhiem));
+			if (form == null)
+			{
+				gv = new GanGiaoVienChuNhiem();
+				gv.MdiParent = this;
+				gv.Show();
+			}
+			else
+			{
+				form.Activate();
+			}
+		}
 		private void iptExcel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
 		{
 			DevExpress.XtraGrid.Views.Grid.GridView View = f.gct1.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
@@ -45,23 +99,6 @@ namespace DGRLSV
 				excelexport.Start();
 			}
 		}
-
-		private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-		{
-			ThongKe tk = new ThongKe();
-			if (tk != MdiParent) {
-			tk.MdiParent = this;
-			tk.Show();
-			}
-		}
-
-		private void btnGV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-		{
-			GanGiaoVienChuNhiem gv = new GanGiaoVienChuNhiem();
-			gv.MdiParent = this;
-			gv.Show();
-		}
-
 		private void iptWord_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
 		{
 			DevExpress.XtraGrid.Views.Grid.GridView View = f.gct1.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
@@ -74,21 +111,5 @@ namespace DGRLSV
 				wordexport.Start();
 			}
 		}
-
-		//private void btnCardView_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-		//{
-		//	dsKetQua f = new dsKetQua();
-		//	BandedGridView bandedGridView = new BandedGridView();
-		//	GridBand gridBand = new GridBand();
-		//	gridBand.Caption = "Band";
-		//	gridBand.Name = "gridBand";
-		//	gridBand.VisibleIndex = 0;
-		//	bandedGridView.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
-		//	gridBand});
-		//	bandedGridView.GridControl = f.gct1;
-		//	bandedGridView.Name = "bandedGridView";
-		//	f.gct1.ViewCollection.Add(bandedGridView);
-		//	f.gct1.MainView = bandedGridView;
-		//}
 	}
 }
