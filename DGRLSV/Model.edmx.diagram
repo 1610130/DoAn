@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ed8644b2dcb74923a3467d36af06f34b" Name="Diagram1">
+        <EntityTypeShape EntityType="DGRLModel.diemDanhGiaRenLuyen" Width="1.5" PointX="9.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DGRLModel.giangVien" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DGRLModel.ketQua" Width="1.5" PointX="12" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DGRLModel.khoa" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DGRLModel.lop" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DGRLModel.luaChonChiTiet" Width="1.5" PointX="7.5" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DGRLModel.noiDungChiTiet" Width="1.5" PointX="7.5" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DGRLModel.sinhVien" Width="1.5" PointX="7.5" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DGRLModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DGRLModel.tieuChiDanhGia" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
+        <AssociationConnector Association="DGRLModel.FK__diemDanhGi__maCT__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="DGRLModel.FK__diemDanhGi__maLC__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="DGRLModel.FK__diemDanhGi__MSSV__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="DGRLModel.FK__ketQua__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="DGRLModel.FK__giangVien__maKho__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="DGRLModel.FK__lop__maGV__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="DGRLModel.FK__ketQua__MSSV__6FE99F9F" ManuallyRouted="false" />
+        <AssociationConnector Association="DGRLModel.FK__lop__maKhoa__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="DGRLModel.FK__sinhVien__maLop__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="DGRLModel.FK__luaChonChi__maCT__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="DGRLModel.FK__noiDungChi__maTC__571DF1D5" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

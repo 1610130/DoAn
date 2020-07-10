@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DGRLModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="diemDanhGiaRenLuyen">
+    <Key>
+      <PropertyRef Name="namHoc" />
+      <PropertyRef Name="maHK" />
+    </Key>
+    <Property Name="namHoc" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="maHK" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="MSSV" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+    <Property Name="maCT" Type="Int32" />
+    <Property Name="diemSV" Type="Int32" />
+    <Property Name="diemLT" Type="Int32" />
+    <Property Name="diemCVHT" Type="Int32" />
+    <Property Name="maLC" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="noiDungChiTiet" Relationship="Self.FK__diemDanhGi__maCT__5DCAEF64" FromRole="diemDanhGiaRenLuyen" ToRole="noiDungChiTiet" />
+    <NavigationProperty Name="luaChonChiTiet" Relationship="Self.FK__diemDanhGi__maLC__5EBF139D" FromRole="diemDanhGiaRenLuyen" ToRole="luaChonChiTiet" />
+    <NavigationProperty Name="sinhVien" Relationship="Self.FK__diemDanhGi__MSSV__5CD6CB2B" FromRole="diemDanhGiaRenLuyen" ToRole="sinhVien" />
+    <NavigationProperty Name="ketQua" Relationship="Self.FK__ketQua__70DDC3D8" FromRole="diemDanhGiaRenLuyen" ToRole="ketQua" />
+  </EntityType>
+  <EntityType Name="giangVien">
+    <Key>
+      <PropertyRef Name="maGV" />
+    </Key>
+    <Property Name="maGV" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="tenGV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="maKhoa" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="khoa" Relationship="Self.FK__giangVien__maKho__4BAC3F29" FromRole="giangVien" ToRole="khoa" />
+    <NavigationProperty Name="lop" Relationship="Self.FK__lop__maGV__4F7CD00D" FromRole="giangVien" ToRole="lop" />
+  </EntityType>
+  <EntityType Name="ketQua">
+    <Key>
+      <PropertyRef Name="idKQ" />
+    </Key>
+    <Property Name="idKQ" Type="Int32" Nullable="false" />
+    <Property Name="MSSV" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+    <Property Name="namHoc" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="maHK" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="tongDiemSV" Type="Int32" />
+    <Property Name="tongDiemLT" Type="Int32" />
+    <Property Name="tongDiemCVHT" Type="Int32" />
+    <Property Name="xepLoai" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="diemDanhGiaRenLuyen" Relationship="Self.FK__ketQua__70DDC3D8" FromRole="ketQua" ToRole="diemDanhGiaRenLuyen" />
+    <NavigationProperty Name="sinhVien" Relationship="Self.FK__ketQua__MSSV__6FE99F9F" FromRole="ketQua" ToRole="sinhVien" />
+  </EntityType>
+  <EntityType Name="khoa">
+    <Key>
+      <PropertyRef Name="maKhoa" />
+    </Key>
+    <Property Name="maKhoa" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="tenKhoa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="giangVien" Relationship="Self.FK__giangVien__maKho__4BAC3F29" FromRole="khoa" ToRole="giangVien" />
+    <NavigationProperty Name="lop" Relationship="Self.FK__lop__maKhoa__4E88ABD4" FromRole="khoa" ToRole="lop" />
+  </EntityType>
+  <EntityType Name="lop">
+    <Key>
+      <PropertyRef Name="maLop" />
+    </Key>
+    <Property Name="maLop" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="tenLop" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="maKhoa" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="maGV" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="maLT" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="giangVien" Relationship="Self.FK__lop__maGV__4F7CD00D" FromRole="lop" ToRole="giangVien" />
+    <NavigationProperty Name="khoa" Relationship="Self.FK__lop__maKhoa__4E88ABD4" FromRole="lop" ToRole="khoa" />
+    <NavigationProperty Name="sinhVien" Relationship="Self.FK__sinhVien__maLop__52593CB8" FromRole="lop" ToRole="sinhVien" />
+  </EntityType>
+  <EntityType Name="luaChonChiTiet">
+    <Key>
+      <PropertyRef Name="maLC" />
+    </Key>
+    <Property Name="maLC" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="moTa" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="diemMin" Type="Int32" />
+    <Property Name="diemMax" Type="Int32" />
+    <Property Name="maCT" Type="Int32" />
+    <NavigationProperty Name="diemDanhGiaRenLuyen" Relationship="Self.FK__diemDanhGi__maLC__5EBF139D" FromRole="luaChonChiTiet" ToRole="diemDanhGiaRenLuyen" />
+    <NavigationProperty Name="noiDungChiTiet" Relationship="Self.FK__luaChonChi__maCT__59FA5E80" FromRole="luaChonChiTiet" ToRole="noiDungChiTiet" />
+  </EntityType>
+  <EntityType Name="noiDungChiTiet">
+    <Key>
+      <PropertyRef Name="maCT" />
+    </Key>
+    <Property Name="maCT" Type="Int32" Nullable="false" />
+    <Property Name="ndChiTiet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="diemCTMax" Type="Int32" />
+    <Property Name="maTC" Type="Int32" />
+    <NavigationProperty Name="diemDanhGiaRenLuyen" Relationship="Self.FK__diemDanhGi__maCT__5DCAEF64" FromRole="noiDungChiTiet" ToRole="diemDanhGiaRenLuyen" />
+    <NavigationProperty Name="luaChonChiTiet" Relationship="Self.FK__luaChonChi__maCT__59FA5E80" FromRole="noiDungChiTiet" ToRole="luaChonChiTiet" />
+    <NavigationProperty Name="tieuChiDanhGia" Relationship="Self.FK__noiDungChi__maTC__571DF1D5" FromRole="noiDungChiTiet" ToRole="tieuChiDanhGia" />
+  </EntityType>
+  <EntityType Name="sinhVien">
+    <Key>
+      <PropertyRef Name="MSSV" />
+    </Key>
+    <Property Name="MSSV" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="hoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ngaySinh" Type="DateTime" Precision="3" />
+    <Property Name="queQuan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="maLop" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="diemDanhGiaRenLuyen" Relationship="Self.FK__diemDanhGi__MSSV__5CD6CB2B" FromRole="sinhVien" ToRole="diemDanhGiaRenLuyen" />
+    <NavigationProperty Name="ketQua" Relationship="Self.FK__ketQua__MSSV__6FE99F9F" FromRole="sinhVien" ToRole="ketQua" />
+    <NavigationProperty Name="lop" Relationship="Self.FK__sinhVien__maLop__52593CB8" FromRole="sinhVien" ToRole="lop" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tieuChiDanhGia">
+    <Key>
+      <PropertyRef Name="maTC" />
+    </Key>
+    <Property Name="maTC" Type="Int32" Nullable="false" />
+    <Property Name="ndTieuChi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="diemTCMax" Type="Int32" />
+    <NavigationProperty Name="noiDungChiTiet" Relationship="Self.FK__noiDungChi__maTC__571DF1D5" FromRole="tieuChiDanhGia" ToRole="noiDungChiTiet" />
+  </EntityType>
+  <Association Name="FK__diemDanhGi__maCT__5DCAEF64">
+    <End Role="noiDungChiTiet" Type="Self.noiDungChiTiet" Multiplicity="0..1" />
+    <End Role="diemDanhGiaRenLuyen" Type="Self.diemDanhGiaRenLuyen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="noiDungChiTiet">
+        <PropertyRef Name="maCT" />
+      </Principal>
+      <Dependent Role="diemDanhGiaRenLuyen">
+        <PropertyRef Name="maCT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__diemDanhGi__maLC__5EBF139D">
+    <End Role="luaChonChiTiet" Type="Self.luaChonChiTiet" Multiplicity="0..1" />
+    <End Role="diemDanhGiaRenLuyen" Type="Self.diemDanhGiaRenLuyen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="luaChonChiTiet">
+        <PropertyRef Name="maLC" />
+      </Principal>
+      <Dependent Role="diemDanhGiaRenLuyen">
+        <PropertyRef Name="maLC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__diemDanhGi__MSSV__5CD6CB2B">
+    <End Role="sinhVien" Type="Self.sinhVien" Multiplicity="0..1" />
+    <End Role="diemDanhGiaRenLuyen" Type="Self.diemDanhGiaRenLuyen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sinhVien">
+        <PropertyRef Name="MSSV" />
+      </Principal>
+      <Dependent Role="diemDanhGiaRenLuyen">
+        <PropertyRef Name="MSSV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ketQua__70DDC3D8">
+    <End Role="diemDanhGiaRenLuyen" Type="Self.diemDanhGiaRenLuyen" Multiplicity="0..1" />
+    <End Role="ketQua" Type="Self.ketQua" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="diemDanhGiaRenLuyen">
+        <PropertyRef Name="namHoc" />
+        <PropertyRef Name="maHK" />
+      </Principal>
+      <Dependent Role="ketQua">
+        <PropertyRef Name="namHoc" />
+        <PropertyRef Name="maHK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__giangVien__maKho__4BAC3F29">
+    <End Role="khoa" Type="Self.khoa" Multiplicity="0..1" />
+    <End Role="giangVien" Type="Self.giangVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="khoa">
+        <PropertyRef Name="maKhoa" />
+      </Principal>
+      <Dependent Role="giangVien">
+        <PropertyRef Name="maKhoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__lop__maGV__4F7CD00D">
+    <End Role="giangVien" Type="Self.giangVien" Multiplicity="0..1" />
+    <End Role="lop" Type="Self.lop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="giangVien">
+        <PropertyRef Name="maGV" />
+      </Principal>
+      <Dependent Role="lop">
+        <PropertyRef Name="maGV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ketQua__MSSV__6FE99F9F">
+    <End Role="sinhVien" Type="Self.sinhVien" Multiplicity="0..1" />
+    <End Role="ketQua" Type="Self.ketQua" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sinhVien">
+        <PropertyRef Name="MSSV" />
+      </Principal>
+      <Dependent Role="ketQua">
+        <PropertyRef Name="MSSV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__lop__maKhoa__4E88ABD4">
+    <End Role="khoa" Type="Self.khoa" Multiplicity="0..1" />
+    <End Role="lop" Type="Self.lop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="khoa">
+        <PropertyRef Name="maKhoa" />
+      </Principal>
+      <Dependent Role="lop">
+        <PropertyRef Name="maKhoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__sinhVien__maLop__52593CB8">
+    <End Role="lop" Type="Self.lop" Multiplicity="0..1" />
+    <End Role="sinhVien" Type="Self.sinhVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lop">
+        <PropertyRef Name="maLop" />
+      </Principal>
+      <Dependent Role="sinhVien">
+        <PropertyRef Name="maLop" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__luaChonChi__maCT__59FA5E80">
+    <End Role="noiDungChiTiet" Type="Self.noiDungChiTiet" Multiplicity="0..1" />
+    <End Role="luaChonChiTiet" Type="Self.luaChonChiTiet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="noiDungChiTiet">
+        <PropertyRef Name="maCT" />
+      </Principal>
+      <Dependent Role="luaChonChiTiet">
+        <PropertyRef Name="maCT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__noiDungChi__maTC__571DF1D5">
+    <End Role="tieuChiDanhGia" Type="Self.tieuChiDanhGia" Multiplicity="0..1" />
+    <End Role="noiDungChiTiet" Type="Self.noiDungChiTiet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tieuChiDanhGia">
+        <PropertyRef Name="maTC" />
+      </Principal>
+      <Dependent Role="noiDungChiTiet">
+        <PropertyRef Name="maTC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DGRLEF" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="diemDanhGiaRenLuyen" EntityType="Self.diemDanhGiaRenLuyen" />
+    <EntitySet Name="giangVien" EntityType="Self.giangVien" />
+    <EntitySet Name="ketQua" EntityType="Self.ketQua" />
+    <EntitySet Name="khoa" EntityType="Self.khoa" />
+    <EntitySet Name="lop" EntityType="Self.lop" />
+    <EntitySet Name="luaChonChiTiet" EntityType="Self.luaChonChiTiet" />
+    <EntitySet Name="noiDungChiTiet" EntityType="Self.noiDungChiTiet" />
+    <EntitySet Name="sinhVien" EntityType="Self.sinhVien" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="tieuChiDanhGia" EntityType="Self.tieuChiDanhGia" />
+    <AssociationSet Name="FK__diemDanhGi__maCT__5DCAEF64" Association="Self.FK__diemDanhGi__maCT__5DCAEF64">
+      <End Role="noiDungChiTiet" EntitySet="noiDungChiTiet" />
+      <End Role="diemDanhGiaRenLuyen" EntitySet="diemDanhGiaRenLuyen" />
+    </AssociationSet>
+    <AssociationSet Name="FK__diemDanhGi__maLC__5EBF139D" Association="Self.FK__diemDanhGi__maLC__5EBF139D">
+      <End Role="luaChonChiTiet" EntitySet="luaChonChiTiet" />
+      <End Role="diemDanhGiaRenLuyen" EntitySet="diemDanhGiaRenLuyen" />
+    </AssociationSet>
+    <AssociationSet Name="FK__diemDanhGi__MSSV__5CD6CB2B" Association="Self.FK__diemDanhGi__MSSV__5CD6CB2B">
+      <End Role="sinhVien" EntitySet="sinhVien" />
+      <End Role="diemDanhGiaRenLuyen" EntitySet="diemDanhGiaRenLuyen" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ketQua__70DDC3D8" Association="Self.FK__ketQua__70DDC3D8">
+      <End Role="diemDanhGiaRenLuyen" EntitySet="diemDanhGiaRenLuyen" />
+      <End Role="ketQua" EntitySet="ketQua" />
+    </AssociationSet>
+    <AssociationSet Name="FK__giangVien__maKho__4BAC3F29" Association="Self.FK__giangVien__maKho__4BAC3F29">
+      <End Role="khoa" EntitySet="khoa" />
+      <End Role="giangVien" EntitySet="giangVien" />
+    </AssociationSet>
+    <AssociationSet Name="FK__lop__maGV__4F7CD00D" Association="Self.FK__lop__maGV__4F7CD00D">
+      <End Role="giangVien" EntitySet="giangVien" />
+      <End Role="lop" EntitySet="lop" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ketQua__MSSV__6FE99F9F" Association="Self.FK__ketQua__MSSV__6FE99F9F">
+      <End Role="sinhVien" EntitySet="sinhVien" />
+      <End Role="ketQua" EntitySet="ketQua" />
+    </AssociationSet>
+    <AssociationSet Name="FK__lop__maKhoa__4E88ABD4" Association="Self.FK__lop__maKhoa__4E88ABD4">
+      <End Role="khoa" EntitySet="khoa" />
+      <End Role="lop" EntitySet="lop" />
+    </AssociationSet>
+    <AssociationSet Name="FK__sinhVien__maLop__52593CB8" Association="Self.FK__sinhVien__maLop__52593CB8">
+      <End Role="lop" EntitySet="lop" />
+      <End Role="sinhVien" EntitySet="sinhVien" />
+    </AssociationSet>
+    <AssociationSet Name="FK__luaChonChi__maCT__59FA5E80" Association="Self.FK__luaChonChi__maCT__59FA5E80">
+      <End Role="noiDungChiTiet" EntitySet="noiDungChiTiet" />
+      <End Role="luaChonChiTiet" EntitySet="luaChonChiTiet" />
+    </AssociationSet>
+    <AssociationSet Name="FK__noiDungChi__maTC__571DF1D5" Association="Self.FK__noiDungChi__maTC__571DF1D5">
+      <End Role="tieuChiDanhGia" EntitySet="tieuChiDanhGia" />
+      <End Role="noiDungChiTiet" EntitySet="noiDungChiTiet" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

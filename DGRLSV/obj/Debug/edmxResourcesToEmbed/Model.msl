@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DGRLModelStoreContainer" CdmEntityContainer="DGRLEF">
+    <EntitySetMapping Name="diemDanhGiaRenLuyen">
+      <EntityTypeMapping TypeName="DGRLModel.diemDanhGiaRenLuyen">
+        <MappingFragment StoreEntitySet="diemDanhGiaRenLuyen">
+          <ScalarProperty Name="namHoc" ColumnName="namHoc" />
+          <ScalarProperty Name="maHK" ColumnName="maHK" />
+          <ScalarProperty Name="MSSV" ColumnName="MSSV" />
+          <ScalarProperty Name="maCT" ColumnName="maCT" />
+          <ScalarProperty Name="diemSV" ColumnName="diemSV" />
+          <ScalarProperty Name="diemLT" ColumnName="diemLT" />
+          <ScalarProperty Name="diemCVHT" ColumnName="diemCVHT" />
+          <ScalarProperty Name="maLC" ColumnName="maLC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="giangVien">
+      <EntityTypeMapping TypeName="DGRLModel.giangVien">
+        <MappingFragment StoreEntitySet="giangVien">
+          <ScalarProperty Name="maGV" ColumnName="maGV" />
+          <ScalarProperty Name="tenGV" ColumnName="tenGV" />
+          <ScalarProperty Name="maKhoa" ColumnName="maKhoa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ketQua">
+      <EntityTypeMapping TypeName="DGRLModel.ketQua">
+        <MappingFragment StoreEntitySet="ketQua">
+          <ScalarProperty Name="idKQ" ColumnName="idKQ" />
+          <ScalarProperty Name="MSSV" ColumnName="MSSV" />
+          <ScalarProperty Name="namHoc" ColumnName="namHoc" />
+          <ScalarProperty Name="maHK" ColumnName="maHK" />
+          <ScalarProperty Name="tongDiemSV" ColumnName="tongDiemSV" />
+          <ScalarProperty Name="tongDiemLT" ColumnName="tongDiemLT" />
+          <ScalarProperty Name="tongDiemCVHT" ColumnName="tongDiemCVHT" />
+          <ScalarProperty Name="xepLoai" ColumnName="xepLoai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="khoa">
+      <EntityTypeMapping TypeName="DGRLModel.khoa">
+        <MappingFragment StoreEntitySet="khoa">
+          <ScalarProperty Name="maKhoa" ColumnName="maKhoa" />
+          <ScalarProperty Name="tenKhoa" ColumnName="tenKhoa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lop">
+      <EntityTypeMapping TypeName="DGRLModel.lop">
+        <MappingFragment StoreEntitySet="lop">
+          <ScalarProperty Name="maLop" ColumnName="maLop" />
+          <ScalarProperty Name="tenLop" ColumnName="tenLop" />
+          <ScalarProperty Name="maKhoa" ColumnName="maKhoa" />
+          <ScalarProperty Name="maGV" ColumnName="maGV" />
+          <ScalarProperty Name="maLT" ColumnName="maLT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="luaChonChiTiet">
+      <EntityTypeMapping TypeName="DGRLModel.luaChonChiTiet">
+        <MappingFragment StoreEntitySet="luaChonChiTiet">
+          <ScalarProperty Name="maLC" ColumnName="maLC" />
+          <ScalarProperty Name="moTa" ColumnName="moTa" />
+          <ScalarProperty Name="diemMin" ColumnName="diemMin" />
+          <ScalarProperty Name="diemMax" ColumnName="diemMax" />
+          <ScalarProperty Name="maCT" ColumnName="maCT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="noiDungChiTiet">
+      <EntityTypeMapping TypeName="DGRLModel.noiDungChiTiet">
+        <MappingFragment StoreEntitySet="noiDungChiTiet">
+          <ScalarProperty Name="maCT" ColumnName="maCT" />
+          <ScalarProperty Name="ndChiTiet" ColumnName="ndChiTiet" />
+          <ScalarProperty Name="diemCTMax" ColumnName="diemCTMax" />
+          <ScalarProperty Name="maTC" ColumnName="maTC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sinhVien">
+      <EntityTypeMapping TypeName="DGRLModel.sinhVien">
+        <MappingFragment StoreEntitySet="sinhVien">
+          <ScalarProperty Name="MSSV" ColumnName="MSSV" />
+          <ScalarProperty Name="hoTen" ColumnName="hoTen" />
+          <ScalarProperty Name="ngaySinh" ColumnName="ngaySinh" />
+          <ScalarProperty Name="queQuan" ColumnName="queQuan" />
+          <ScalarProperty Name="maLop" ColumnName="maLop" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="DGRLModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tieuChiDanhGia">
+      <EntityTypeMapping TypeName="DGRLModel.tieuChiDanhGia">
+        <MappingFragment StoreEntitySet="tieuChiDanhGia">
+          <ScalarProperty Name="maTC" ColumnName="maTC" />
+          <ScalarProperty Name="ndTieuChi" ColumnName="ndTieuChi" />
+          <ScalarProperty Name="diemTCMax" ColumnName="diemTCMax" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
