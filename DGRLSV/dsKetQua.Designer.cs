@@ -32,8 +32,6 @@
 			this.gct1 = new DevExpress.XtraGrid.GridControl();
 			this.ketQuaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
 			this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-			this.colnamHoc = new DevExpress.XtraGrid.Columns.GridColumn();
-			this.colmaHK = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.colMSSV = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.colKhoa = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.coltongDiemCVHT = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -54,6 +52,7 @@
 			this.stackPanel1 = new DevExpress.Utils.Layout.StackPanel();
 			this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
 			this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+			this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
 			((System.ComponentModel.ISupportInitialize)(this.gct1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.ketQuaBindingSource1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -86,9 +85,23 @@
 			// 
 			// gridView1
 			// 
+			this.gridView1.Appearance.HeaderPanel.Options.UseTextOptions = true;
+			this.gridView1.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+			this.gridView1.Appearance.HeaderPanel.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+			this.gridView1.Appearance.Row.Options.UseTextOptions = true;
+			this.gridView1.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+			this.gridView1.Appearance.Row.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+			this.gridView1.Appearance.ViewCaption.Options.UseTextOptions = true;
+			this.gridView1.Appearance.ViewCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+			this.gridView1.Appearance.ViewCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+			this.gridView1.AppearancePrint.HeaderPanel.Options.UseTextOptions = true;
+			this.gridView1.AppearancePrint.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+			this.gridView1.AppearancePrint.HeaderPanel.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+			this.gridView1.AppearancePrint.Row.Options.UseTextOptions = true;
+			this.gridView1.AppearancePrint.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+			this.gridView1.AppearancePrint.Row.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
 			this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colnamHoc,
-            this.colmaHK,
+            this.gridColumn1,
             this.colMSSV,
             this.colKhoa,
             this.coltongDiemCVHT,
@@ -97,33 +110,16 @@
 			this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "", null, "({0} Sinh viên)")});
 			this.gridView1.Name = "gridView1";
-			this.gridView1.OptionsView.ShowAutoFilterRow = true;
-			// 
-			// colnamHoc
-			// 
-			this.colnamHoc.Caption = "Năm học";
-			this.colnamHoc.FieldName = "namHoc";
-			this.colnamHoc.Name = "colnamHoc";
-			this.colnamHoc.OptionsColumn.FixedWidth = true;
-			this.colnamHoc.Visible = true;
-			this.colnamHoc.VisibleIndex = 0;
-			// 
-			// colmaHK
-			// 
-			this.colmaHK.Caption = "Học kỳ";
-			this.colmaHK.FieldName = "maHK";
-			this.colmaHK.Name = "colmaHK";
-			this.colmaHK.OptionsColumn.FixedWidth = true;
-			this.colmaHK.Visible = true;
-			this.colmaHK.VisibleIndex = 1;
+			this.gridView1.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.gridView1_CustomUnboundColumnData);
 			// 
 			// colMSSV
 			// 
+			this.colMSSV.Caption = "MSSV";
 			this.colMSSV.FieldName = "MSSV";
 			this.colMSSV.Name = "colMSSV";
 			this.colMSSV.OptionsColumn.FixedWidth = true;
 			this.colMSSV.Visible = true;
-			this.colMSSV.VisibleIndex = 2;
+			this.colMSSV.VisibleIndex = 1;
 			// 
 			// colKhoa
 			// 
@@ -132,7 +128,7 @@
 			this.colKhoa.Name = "colKhoa";
 			this.colKhoa.OptionsColumn.FixedWidth = true;
 			this.colKhoa.Visible = true;
-			this.colKhoa.VisibleIndex = 3;
+			this.colKhoa.VisibleIndex = 2;
 			this.colKhoa.Width = 87;
 			// 
 			// coltongDiemCVHT
@@ -142,7 +138,7 @@
 			this.coltongDiemCVHT.Name = "coltongDiemCVHT";
 			this.coltongDiemCVHT.OptionsColumn.FixedWidth = true;
 			this.coltongDiemCVHT.Visible = true;
-			this.coltongDiemCVHT.VisibleIndex = 4;
+			this.coltongDiemCVHT.VisibleIndex = 3;
 			// 
 			// colxepLoai
 			// 
@@ -151,7 +147,7 @@
 			this.colxepLoai.Name = "colxepLoai";
 			this.colxepLoai.OptionsColumn.FixedWidth = true;
 			this.colxepLoai.Visible = true;
-			this.colxepLoai.VisibleIndex = 5;
+			this.colxepLoai.VisibleIndex = 4;
 			// 
 			// ketQuaBindingSource
 			// 
@@ -331,6 +327,16 @@
 			this.textEdit1.TabIndex = 10;
 			this.textEdit1.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.textEdit1_EditValueChanging);
 			// 
+			// gridColumn1
+			// 
+			this.gridColumn1.Caption = "STT";
+			this.gridColumn1.FieldName = "UnboundColumn1";
+			this.gridColumn1.Name = "gridColumn1";
+			this.gridColumn1.OptionsColumn.FixedWidth = true;
+			this.gridColumn1.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
+			this.gridColumn1.Visible = true;
+			this.gridColumn1.VisibleIndex = 0;
+			// 
 			// dsKetQua
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -382,11 +388,10 @@
 		private DevExpress.XtraEditors.LabelControl labelControl1;
 		private DevExpress.XtraEditors.TextEdit textEdit1;
 		private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-		private DevExpress.XtraGrid.Columns.GridColumn colMSSV;
-		private DevExpress.XtraGrid.Columns.GridColumn colnamHoc;
-		private DevExpress.XtraGrid.Columns.GridColumn colmaHK;
 		private DevExpress.XtraGrid.Columns.GridColumn coltongDiemCVHT;
 		private DevExpress.XtraGrid.Columns.GridColumn colxepLoai;
 		private DevExpress.XtraGrid.Columns.GridColumn colKhoa;
+		private DevExpress.XtraGrid.Columns.GridColumn colMSSV;
+		private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
 	}
 }

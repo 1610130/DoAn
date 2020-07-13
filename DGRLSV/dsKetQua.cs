@@ -15,6 +15,8 @@ using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
 using System.Data.Entity;
 using DevExpress.Data.ODataLinq.Helpers;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.Data;
 
 namespace DGRLSV
 {
@@ -26,8 +28,9 @@ namespace DGRLSV
 			InitializeComponent();
 			db.ketQua.Load();
 			ketQuaBindingSource1.DataSource = db.ketQua.Local;
+			gridView1.CustomUnboundColumnData += gridView1_CustomUnboundColumnData;
 		}
-		private void SelectComboBox(int top)
+	private void SelectComboBox(int top)
 		{
 			if (cbXepLoai.SelectedIndex != -1)
 			{
@@ -106,6 +109,12 @@ namespace DGRLSV
 				SelectComboBox(db.sinhVien.Count());
 			else
 				SelectComboBox();
+		}
+
+		private void gridView1_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
+		{
+			if (e.IsGetData)
+				e.Value = 1+gridView1.GetRowHandle(e.ListSourceRowIndex);
 		}
 	}
 }

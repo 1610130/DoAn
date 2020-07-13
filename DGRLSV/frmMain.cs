@@ -98,6 +98,7 @@ namespace DGRLSV
 				excelexport.StartInfo.Arguments = "MdiChill.xlsx";
 				excelexport.Start();
 			}
+			//f.gct1.ShowPrintPreview();
 		}
 		private void iptWord_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
 		{
@@ -110,6 +111,7 @@ namespace DGRLSV
 				wordexport.StartInfo.Arguments = "MdiChill.docx";
 				wordexport.Start();
 			}
+			//f.gct1.ShowPrintPreview();
 		}
 	}
 }
